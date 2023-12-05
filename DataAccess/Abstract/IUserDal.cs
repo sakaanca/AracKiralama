@@ -9,8 +9,8 @@ using Core.Entities.Concrete;
 
 namespace DataAccess.Abstract
 {
-    public interface IUserDal:IEntityRepository<User>
+    public interface IUserDal:IEntityRepository<Users>
     {
-        public List<OperationClaim> GetClaims(User user);
+        public List<OperationClaim> GetClaims(Users user);
     }
 }

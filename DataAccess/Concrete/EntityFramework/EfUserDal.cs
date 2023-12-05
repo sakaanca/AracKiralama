@@ -9,11 +9,11 @@ using Core.Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfUserDal:EfEntityRepositoryBase<User,ReCapContext>,IUserDal
+    public class EfUserDal:EfEntityRepositoryBase<Users,RentACarContext>,IUserDal
     {
-        public List<OperationClaim> GetClaims(User user)
+        public List<OperationClaim> GetClaims(Users user)
         {
-            using (var context = new ReCapContext())
+            using (var context = new RentACarContext())
             {
                 var result = from operationClaim in context.OperationClaims
                     join userOperationClaim in context.UserOperationClaims

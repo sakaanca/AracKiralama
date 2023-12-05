@@ -13,11 +13,11 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfCarDal : EfEntityRepositoryBase<Car, ReCapContext>, ICarDal
+    public class EfCarDal : EfEntityRepositoryBase<Car, RentACarContext>, ICarDal
     {
         public List<CarDetailDto> GetCarDetails()
         {
-            using (ReCapContext context = new ReCapContext())
+            using (RentACarContext context = new RentACarContext())
             {
                 var result = from car in context.Cars
                     join color in context.Colors on car.ColorId equals color.ColorId
@@ -38,7 +38,7 @@ namespace DataAccess.Concrete.EntityFramework
 
         public List<CarDetailDto> GetCarDetailsDtoByBrandId(int id)
         {
-            using (ReCapContext context = new ReCapContext())
+            using (RentACarContext context = new RentACarContext())
             {
                 var result = from car in context.Cars
                     join color in context.Colors on car.ColorId equals color.ColorId
@@ -60,7 +60,7 @@ namespace DataAccess.Concrete.EntityFramework
 
         public List<CarDetailDto> GetCarDetailsDtoByColorId(int id)
         {
-            using (ReCapContext context = new ReCapContext())
+            using (RentACarContext context = new RentACarContext())
             {
                 var result = from car in context.Cars
                     join color in context.Colors on car.ColorId equals color.ColorId
@@ -82,7 +82,7 @@ namespace DataAccess.Concrete.EntityFramework
 
         public CarDetailDto GetCarDetailsDtoById(int id)
         {
-            using (ReCapContext context = new ReCapContext())
+            using (RentACarContext context = new RentACarContext())
             {
                 var result = from car in context.Cars
                     join color in context.Colors on car.ColorId equals color.ColorId
@@ -105,7 +105,7 @@ namespace DataAccess.Concrete.EntityFramework
         public List<CarDetailDto> GetCarDetailByBrandAndColorId(int colorId, int brandId)
         {
            
-                using (ReCapContext context = new ReCapContext())
+                using (RentACarContext context = new RentACarContext())
                 {
                     var result = from car in context.Cars
                         join Color in context.Colors on car.ColorId equals Color.ColorId

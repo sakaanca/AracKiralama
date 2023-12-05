@@ -6,14 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.Entities.Concrete;
-using User = Core.Entities.Concrete.User;
+using Users = Core.Entities.Concrete.Users;
 
 namespace Business.Abstract
 {
     public interface IUserService
     {
-        List<OperationClaim> GetClaims(User user);
-        void Add(User user);
-        User GetByMail(string mail);
+        List<OperationClaim> GetClaims(Users user);
+        void Add(Users user);
+        Users GetByMail(string mail);
     }
 }
