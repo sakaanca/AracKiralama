@@ -29,7 +29,7 @@ namespace DataAccess.Concrete.EntityFramework
                         CarName = car.CarName,
                         ColorName = color.ColorName,
                         BrandName = brand.BrandName,
-                        DailyPrice = car.DailyPrice,
+                        DailyPrice = (int)car.DailyPrice,
                         CarImage = carImage.ImagePath
                     };
                 return result.ToList();
@@ -52,7 +52,7 @@ namespace DataAccess.Concrete.EntityFramework
                         ColorName = color.ColorName,
                         BrandName = brand.BrandName,
                        CarImage = carImage.ImagePath,
-                        DailyPrice = car.DailyPrice
+                        DailyPrice = (int)car.DailyPrice
                     };
                 return result.ToList();
             }
@@ -74,7 +74,7 @@ namespace DataAccess.Concrete.EntityFramework
                         ColorName = color.ColorName,
                         BrandName = brand.BrandName,
                         CarImage = carImage.ImagePath,
-                        DailyPrice = car.DailyPrice
+                        DailyPrice = (int)car.DailyPrice
                     };
                 return result.ToList();
             }
@@ -96,7 +96,7 @@ namespace DataAccess.Concrete.EntityFramework
                         ColorName = color.ColorName,
                         BrandName = brand.BrandName,
                         CarImage = carImage.ImagePath,
-                        DailyPrice = car.DailyPrice
+                        DailyPrice = (int)car.DailyPrice
                     };
                 return result.ToList().SingleOrDefault();
             }
@@ -119,7 +119,7 @@ namespace DataAccess.Concrete.EntityFramework
                             ColorName = Color.ColorName,
                             BrandName = brand.BrandName,
                             CarImage = carImage.ImagePath,
-                            DailyPrice = car.DailyPrice
+                            DailyPrice = (int)car.DailyPrice
                         };
                     return result.ToList();
 

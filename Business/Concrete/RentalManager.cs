@@ -26,7 +26,7 @@ namespace Business.Concrete
             IResult result = BusinessRules.Run(
                 checkIfCarAvailableForRent(rental.CarId)
                 );
-            if (!result.Success)
+            if (result.Success)
             {
                 return new ErrorResult();
             }

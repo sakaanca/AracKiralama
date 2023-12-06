@@ -12,14 +12,16 @@ namespace Entities.Concrete
         public int CarId { get; set; }
         public int BrandId { get; set; }
         public int ColorId { get; set; }
-        public int DailyPrice { get; set; }
+        public int? DailyPrice { get; set; }
         public string CarName { get; set; }
         public int ModelYear { get; set; }
-        public string Description { get; set; }
-        public int PaymentId { get; set; }
-        public int CarImageId { get; set; }
-        public int UserId { get; set; }
-        public string ProductName { get; set; }
+        public string? Description { get; set; }
+        public int? PaymentId { get; set; }
+        public int? CarImageId { get; set; }
+        public int? UserId { get; set; }
+        public string? ProductName { get; set; }
+        public int? RentalId { get; set; }
+        public int? CustomerId { get; set; }
 
 
     }
