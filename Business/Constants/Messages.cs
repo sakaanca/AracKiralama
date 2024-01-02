@@ -14,6 +14,7 @@ namespace Business.Constants
         public static string CarDeleted = "Araba silindi.";
         public static string CarNameException = "Araç adı uygun değil.";
         public static string CarsListed = "Arabalar listelendi.";
+        public static string CarsNotListed = "Arabalar Listelenemedi";
 
 
         public static string ColorAdded = "Renk eklendi";

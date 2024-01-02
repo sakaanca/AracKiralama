@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.Entities.Concrete;
-using Users = Core.Entities.Concrete.Users;
+
 
 namespace Business.Concrete
 {
@@ -25,19 +25,44 @@ namespace Business.Concrete
         }
 
 
-        public List<OperationClaim> GetClaims(Users user)
+        public List<OperationClaim> GetClaims(Core.Entities.Concrete.Users user)
         {
             return _userDal.GetClaims(user);
         }
 
-        public void Add(Users user)
+        public void Add(Core.Entities.Concrete.Users user)
         {
              _userDal.Add(user);
         }
 
-        public Users GetByMail(string email)
+        public IUserDal Get_userDal()
         {
-            return _userDal.Get(u => u.Email == email);
+            return _userDal;
+        }
+
+        public Users GetuserDal()
+        {
+            return (Users)_userDal;
+        }
+
+        public Users GetByMail(string email, Users _userDal)
+        {
+            return  GetByMail(); ;
+        }
+
+        private Users GetByMail()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Core.Entities.Concrete.Users GetByMail(string mail)
+        {
+            throw new NotImplementedException();
+        }
+
+        object IUserService.Get_userDal()
+        {
+            throw new NotImplementedException();
         }
     }
 }

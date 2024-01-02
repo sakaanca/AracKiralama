@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using Business.Constants;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
@@ -11,8 +12,8 @@ namespace ReCapProject
     {
         static void Main(string[] args)
         {
-            //CarTest();
-            ColorTest();
+            CarTest();
+            //ColorTest();
             //BrandTest();
             
         }
@@ -51,9 +52,15 @@ namespace ReCapProject
             {
                 foreach (var car in result.Data)
                 {
-                    Console.WriteLine(car.CarName + " / " + car.ColorName + " / " + car.DailyPrice);
+                    Console.WriteLine(car.CarName + " / "  + " / " + car.DailyPrice+car.BrandName+car.FirstName);
                 }
             }
+            else
+            {
+                Console.WriteLine(Messages.CarsNotListed);
+            }
+            Console.ReadLine();
         }
+        
     }
 }

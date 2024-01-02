@@ -9,18 +9,18 @@ using Core.Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-        public class RentACarContext:DbContext
+    public class RentACarContext : DbContext
+    {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            {
-                optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=RentACar;Trusted_Connection=true;");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=RentACar;Trusted_Connection=true;");
 
-          
-            }
-            protected override void OnModelCreating(ModelBuilder modelBuilder)
-            {
-                modelBuilder.Entity<Customer>().HasNoKey();
-            }
+
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Customer>().HasNoKey();
+        }
 
         public DbSet<Car> Cars { get; set; }
         public DbSet<Color> Colors { get; set; }

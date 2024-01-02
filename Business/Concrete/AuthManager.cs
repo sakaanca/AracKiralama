@@ -41,37 +41,47 @@ namespace Business.Concrete
             return new SuccessDataResult<Users>(user, Messages.UserRegistered);
         }
 
-        public IDataResult<Users> Login(UserForLoginDto userForLoginDto)
-        {
-            var userToCheck = _userService.GetByMail(userForLoginDto.Email);
-            if (userToCheck==null)
-            {
-                return new ErrorDataResult<Users>(Messages.UserNotFound);
-            }
+        //public IDataResult<Users> Login(UserForLoginDto userForLoginDto)
+        //{
+        //    var userToCheck = _userService.GetByMail(userForLoginDto.Email, _userService.Get_userDal(), _userService.Get_userDal());
+        //    if (userToCheck==null)
+        //    {
+        //        return new ErrorDataResult<Users>(Messages.UserNotFound);
+        //    }
 
-            if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password,userToCheck.PasswordHash,userToCheck.PasswordSalt))
-            {
-                return new ErrorDataResult<Users>(Messages.PasswordError);
-            }
+        //    if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password,userToCheck.PasswordHash,userToCheck.PasswordSalt))
+        //    {
+        //        return new ErrorDataResult<Users>(Messages.PasswordError);
+        //    }
 
-            return new SuccessDataResult<Users>(userToCheck, Messages.SuccessfulLogin);
-        }
+        //    return new SuccessDataResult<Users>(userToCheck, Messages.SuccessfulLogin);
+        //}
 
-        public IResult UserExists(string email)
-        {
-            if (_userService.GetByMail(email)!=null)
-            {
-                return new ErrorResult(Messages.UserAlredyExists);
-            }
+        //public IResult UserExists(string email)
+        //{
+        //    if (_userService.GetByMail(email, _userService.Get_userDal(), _userService.Get_userDal()) !=null)
+        //    {
+        //        return new ErrorResult(Messages.UserAlredyExists);
+        //    }
 
-            return new SuccessResult();
-        }
+        //    return new SuccessResult();
+        //}
 
         public IDataResult<AccessToken> CreateAccessToken(Users user)
         {
             var claims = _userService.GetClaims(user);
             var accessToken = _tokenHelper.CreateToken(user, claims);
             return new SuccessDataResult<AccessToken>(accessToken, Messages.AccessTokenCreated);
+        }
+
+        public IDataResult<Users> Login(UserForLoginDto userForLoginDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResult UserExists(string email)
+        {
+            throw new NotImplementedException();
         }
     }
 }
